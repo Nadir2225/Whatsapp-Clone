@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/screens/callsScreen.dart';
+import 'package:whatsapp_clone/screens/cameraScreen.dart';
+import 'package:whatsapp_clone/screens/chatsScreen.dart';
+import 'package:whatsapp_clone/screens/statusScreen.dart';
 
 class WhatsappHome extends StatefulWidget {
   const WhatsappHome({super.key});
@@ -21,9 +25,9 @@ class _WhatsappHomeState extends State<WhatsappHome>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF075E54),
-        title: Text("Whatsapp", style: TextStyle(color: Colors.white)),
-        elevation: 0.7,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Colors.white,
+        title: Text("Whatsapp"),
         bottom: TabBar(
           controller: _tabController,
           labelColor: Colors.white,
@@ -36,8 +40,26 @@ class _WhatsappHomeState extends State<WhatsappHome>
             Tab(text: 'Calls'),
           ],
         ),
+        actions: [
+          Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
+          Icon(Icons.search),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
+          Icon(Icons.more_vert),
+        ],
       ),
-      body: Container(),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          CameraScreen(),
+          ChatsScreen(),
+          StatusScreen(),
+          CallsScreen(),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          child: Icon(Icons.message),
+          onPressed: () => {}),
     );
   }
 }
