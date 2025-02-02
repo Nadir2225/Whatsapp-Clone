@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_clone/screens/callsScreen.dart';
-import 'package:whatsapp_clone/screens/cameraScreen.dart';
-import 'package:whatsapp_clone/screens/chatsScreen.dart';
-import 'package:whatsapp_clone/screens/statusScreen.dart';
+import 'package:whatsapp_clone/screens/home/call_screen.dart';
+import 'package:whatsapp_clone/screens/home/camera_screen.dart';
+import 'package:whatsapp_clone/screens/home/chats_screen.dart';
+import 'package:whatsapp_clone/screens/home/status_screen.dart';
 
 class WhatsappHome extends StatefulWidget {
   const WhatsappHome({super.key});
@@ -18,7 +18,7 @@ class _WhatsappHomeState extends State<WhatsappHome>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 4);
+    _tabController = TabController(initialIndex: 1, vsync: this, length: 4);
   }
 
   @override
